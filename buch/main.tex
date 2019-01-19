@@ -1,0 +1,49 @@
+\documentclass[ngerman, 11pt, a4paper, twoside, abstracton]{scrbook}
+
+\input{preamble.tex}
+
+
+\begin{document}
+
+\title{Mathematik}
+\author{Paul Reichert}
+\date{\today}
+
+\maketitle
+
+\chapter{Algebra}
+
+\section{Galoistheorie, Ordnung und Ganzheit}
+
+\subsection{Überblick und Leitmotive}
+
+Nicht wegzudenken aus der Algebra sind Polynome. Wenn es also darum geht, Ringe und Körper zu untersuchen, dann wäre es schön, wenn wir das mit Polynomen machen können. Wir interessieren uns insbesondere für sogenannte Erweiterungen von Ringen und Körpern, die es uns erlauben, neue Elemente zu unserem algebraischen Objekt hinzuzunehmen. Bekannte Beispiele dafür sind die reellen Zahlen als Körpererweiterung der rationalen Zahlen $\R\supseteq\Q$ oder -- durch Hinzunahme der imaginären Einheit -- $\C\supseteq\R$.
+
+Doch was ist eigentlich mit dem Begriff \enquote{Erweiterung} gemeint? Um das Verständnis zu schärfen, eine Definition:
+
+\begin{definition}[Erweiterung]
+  \begin{enumerate}[(a)]
+    \item Sei $R$ ein Ring. Eine Ringerweiterung von $R$ ist ein Ring $S$, der $R$ als Teilring enthält.
+    \item Eine Ringerweiterung heißt Körpererweiterung, wenn die beteiligten Ringe Körper sind.
+  \end{enumerate}
+
+  In beiden Fällen schreibt man die Erweiterung als $Y\supseteq X$.
+\end{definition}
+
+Man kann auf eine solche Erweiterung auf verschiedene Weisen schauen. Zunächst manifestiert sich in $Y\supseteq X$, dass $Y$ eine $X$"=Algebra ist. Oft interessieren wir uns aber für \emph{als $X$"=Modul} endlich erzeugte Erweiterungen.
+
+Der Grund liegt in der folgenden Beobachtung:
+
+\begin{pattern}[algebraische Elemente]
+  Sei $S\supseteq R$ eine Ringerweiterung und $s\in S$.
+
+  \begin{enumerate}[(a)]
+    \item $R\left[ s \right]$ ist genau dann als $R$"=Modul endlich erzeugt, wenn $s$ Nullstelle eines normierten Polynoms $f\in R\left[ X \right]$ ist.
+    \item Seien nun $R$ und $S$ Körper. Dann ist $R\left( s \right)$ genau dann ein endlichdimensionaler $R$"=Vektorraum, wenn $s$ Nullstelle eines Polynoms $f\in R\left[ X \right]\setminus\left\{ 0 \right\}$ ist.
+  \end{enumerate}
+
+\end{pattern}
+
+Der Grund liegt rein intuitiv in den folgenden zwei Beobachtungen. Ist $s$ Nullstelle eines passenden Polynoms, kann $R\left[ s \right]$ als Faktoralgebra von $R\left[ X \right]$ geschrieben werden. Ist andererseits $R\left[ s \right]$ ein endlichdimensionaler $R$"=Modul, sind $1, s, s^2,\ \dots$ linear unabhängig. Hat man eine lineare Abhängigkeit gefunden, dann hat man ein passendes annullierendes Polynom gefunden. Das ist kein Beweis, aber eine gute Vorbereitung auf das Kommende.
+
+\end{document}
