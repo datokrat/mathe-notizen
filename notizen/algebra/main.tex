@@ -1,0 +1,124 @@
+\documentclass[ngerman, 11pt, a4paper, twoside, abstracton]{scrartcl}
+
+\input{preamble.tex}
+
+\begin{document}
+
+\renewcommand{\titlepagestyle}{empty}
+
+\pagestyle{empty}
+
+\subject{Notizen}
+\title{Algebra}
+\author{Paul Reichert}
+\date{\today}
+
+\maketitle
+
+\pagenumbering{roman}
+
+\pagestyle{headings}
+
+\pagenumbering{arabic}
+
+\section{Ringtheorie}
+
+\subsection{Fakten}
+
+\subsection{Nützlich}
+
+Folgendes Lemma funktioniert so nicht, der Trick ging aber so ähnlich\ldots
+\begin{lemma}
+  Sei $K$ ein Körper von Charakteristik $p\in\mathbb{P}$ und $f\in K\left[ X \right]$. $f$ ist genau dann irreduzibel, wenn $\operatorname{ggT}\left( f, X^p - X \right) = 1$.
+\end{lemma}
+
+\section{Ganzheit und Dedekindringe}
+
+\subsection{Fakten und Wiederholung}
+
+\begin{definition}
+  Ein Dedekindring ist ein ganz abgeschlossener, noetherscher Integritätsbereich, in dem jedes Primideal ein maximales Ideal ist.
+\end{definition}
+
+\begin{lemma}
+  Sei $K$ eine endliche Körpererweiterung von $\mathbb{Q}$ und $\mathcal{O}$ eine Ordnung in $K$. Dann hat jedes von $\left( 0 \right)$ verschiedene Ideal in $\mathcal{O}$ endlichen Index und jedes von $\left( 0 \right)$ verschiedene Primideal ist maximal.
+\end{lemma}
+\begin{proof}
+  Wähle ein $x\in I\setminus \left( 0 \right)$.
+  Sei $B$ eine gemeinsame Basis von $\mathcal{O}$ und $K$. Die Multiplikationsmatrix $M$ der Einheit $x$ bezüglich $B$ ist in $K$ invertierbar, also $\det M \ne 0$. Damit ist der Rang von $\left( x \right)$ gleich dem Rang von $M$ gleich $n$.
+
+  Der Elementarteilersatz liefert jetzt, dass $\left( x \right)$ endlichen Index in $\mathcal{O}$ hat. Da $\left( x \right) \subseteq I$, folgt der erste Teil der Behauptung.
+
+  Für ein Primideal $\mathfrak{p}$ ist $I/\mathfrak{p}$ ein endlicher Integritätsbereich, also ein Körper.
+\end{proof}
+
+\subsubsection{Freestyle-Freitag}
+
+Wenn eine Ordnung $\mathcal{O}$ in einem Zahlkörper $K$ als Ring von einem Element erzeugt wird, dann kann man die Äquivalenz von Idealen wie folgt interpretieren. Wir halten die folgende Notation fest:
+
+\[
+  \mathcal{O} = \mathbb{Z}\left[ w \right],\; \left[ K : \mathbb{Q} \right] = n,\; f = \operatorname{MP}_w \in \mathbb{Z}\left[ X \right]
+\]
+
+Beachte, dass $f$ irreduzibel ist mit $\deg\left( f \right) = n$.
+
+Sei $I$ ein Ideal in $\mathcal{O}$. Da $\mathbb{Z}$ ein Hauptidealring und $I$ ein Untermodul vom $n$"=rangigen $\mathbb{Z}$"=Modul $\mathcal{O}$ ist, ist $I$ frei abelsch. Wenn $I$ ungleich $0$ ist, dann hat es endlichen Index in $\mathcal{O}$, weshalb mit dem Elementarteilersatz folgt, dass $I$ sogar Rang $n$ hat.
+
+Von nun an bezeichne $M_w$ die Matrix der Multiplikation mit $w$ bezüglich einer fest gewählten Basis von $I$. Sie ist Nullstelle von $f$. Beachte, dass $M_w$ erhalten bleibt, wenn man von $I$ zu $\alpha I$ mit $\alpha \in K$ übergeht. Anders gesagt ist $M_w$ -- oder vielmehr seine unimodulare Äquivalenzklasse -- eine Eigenschaft der Äquivalenzklasse von $I$.
+
+Wir zeigen nun, dass es sich sogar um eine Eins"=zu"=eins"=Korrespondenz handelt. Sei also $M\in\mathbb{Z}^{n\times n}$ ein Vertreter einer unimodularen Äquivalenzklasse und Nullstelle von $f$. $\mathbb{Z}\left[ w \right]$ ist ein endlich erzeugter $\mathbb{Z}"=Untermodul$ von $\mathbb{Q}\left( w \right)\cong K$. Dieser ist eine Eigenschaft der unimodularen Äquivalenzklasse.
+
+Es bleibt noch zu prüfen, dass diese beiden Zuordnungen zueinander invers sind!
+
+\subsection{Nützlich}
+
+Vielleicht sollte man die folgenden Resultate hinsichtlich des Nullideals überarbeiten -- dieses hat nämlich keine Primfaktorzerlegung.
+
+\begin{lemma}
+  Seien $K, L$ Körper und $K\subseteq L$ eine Körpererweiterung. Dann ist sie genau dann ganz, wenn sie algebraisch ist.
+\end{lemma}
+
+\begin{lemma}
+  Sei $R \subseteq S$ eine ganze Ringerweiterung, wobei $R$ ein Körper und $S$ nullteilerfrei ist. Dann ist $S$ sogar ein Schiefkörper.
+\end{lemma}
+\begin{proof}
+  Sei $x\in S\setminus \left( 0 \right)$. Da $x$ ganz über $R$ ist, ist $\emptyset \ne I\left( x \right) \subseteq R$.
+  
+  $R$ ist Körper $\implies$ $x$ hat Minimalpolynom $f$. $S$ ist nullteilerfrei $\implies$ $f$ ist irreduzibel und $f\left( 0 \right) \ne 0$. Mit $f = X\bar{f} - 1$ folgt dann $\bar{f}(x) x = x \bar{f}\left( x \right) = 1$.
+\end{proof}
+
+\begin{example}
+  Sei $R$ ein Körper und $S\coloneqq R\left[ X \right]/\left( X^2 \right)$. $S$ ist ganz über $R$, aber kein Schiefkörper!
+\end{example}
+
+\begin{lemma}
+  Sei $R$ ein Dedekindring und $I, J \subseteq R$ zwei Ideale in $R$. Dann gilt:
+  \[
+    I \mid J \iff J \subseteq I
+  \]
+\end{lemma}
+\begin{proof}
+  Hinrichtung ist klar.
+
+  Ist $I$ ein Primideal, dann muss mindestens ein Primfaktor $P$ von $J$ in $I$ liegen. $I$ muss dann wegen der Maximalität gleich $P$ sein, woraus die Behauptung folgt.
+
+  Sei nun $I$ ein Produkt von Primfaktoren. Für $I = R$ ist die Behauptung klar. Sonst Induktion über die Anzahl der Faktoren. Sei $P$ ein Primfaktor von $I$. Dann muss $P$ auch ein Faktor von $J$ sein. Da die (gebrochenen) Ideale eine Gruppe bilden, kann dieser Faktor auf beiden Seiten eliminiert und das Verfahren so lange wiederholt werden, bis $I = R$ gilt.
+\end{proof}
+
+\begin{lemma}
+  Sei $R$ dedekindsch und $I, J \le R$ Ideale mit disjunkter Primfaktorzerlegung. Dann sind $I$ und $J$ teilerfremd.
+\end{lemma}
+\begin{proof}
+  Annahme: $I + J \subseteq P$ prim. Für jeden Primfaktor $Q$ von $I = Q\tilde{I}$ gilt dann: $I + QJ \subseteq I + J \subseteq P$. Falls $Q = P$, dann folgt $Q \mid J$, ein Widerspruch. Also ist $\tilde{I} + J \subseteq P$. Induktiv führt man dies zum Widerspruch.
+\end{proof}
+
+\begin{lemma}
+  Für jede teilerfremde Familie von Idealen existiert in jeder mengentheoretischen Funktion dieser Ideale ein Element.
+\end{lemma}
+\begin{proof}
+  Chinesischer Restsatz.
+\end{proof}
+
+\clearpage
+
+\end{document}
