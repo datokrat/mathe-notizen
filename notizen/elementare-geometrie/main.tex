@@ -1,0 +1,71 @@
+\documentclass[ngerman, 11pt, a4paper, twoside, abstracton]{scrartcl}
+
+\input{preamble.tex}
+
+\newcommand{\N}{\mathbb{N}}
+\newcommand{\R}{\mathbb{R}}
+
+\begin{document}
+
+\renewcommand{\titlepagestyle}{empty}
+
+\pagestyle{empty}
+
+\subject{Notizen}
+\title{Elementare Geometrie}
+\author{Paul Reichert}
+\date{\today}
+
+\maketitle
+
+\section{Orientierbarkeit von Simplizialkomplexen}
+
+\begin{definition}
+  \begin{enumerate}[(a)]
+    \item Ein $n$"=dimensionaler Simplizialkomplex heißt \emph{flach}, wenn er in den $\R^n$ eingebettet ist.
+    \item Ein simplizialer Isomorphismus in einen flachen Simplizialkomplex heißt \emph{Verflachung}.
+    \item Eine affine bijektive Abbildung zwischen zwei Simplizes in einem flachen Simplizialkomplex mit positiver Determinante heißt \emph{gerader Isomorphismus}.
+  \end{enumerate}
+\end{definition}
+
+\begin{remark}
+  Die orientierungsrespektierenden geraden Isomorphismen bilden ein Gruppoid über der Menge der 2"=Simplizes eines orientierten Komplexes und zerlegen die 2"=Simplizes in Äquivalenzklassen. Elemente in derselben Klasse heißen \emph{gleich orientiert}.
+\end{remark}
+
+\begin{lemma}
+  Sei $K$ ein flacher Simplizialkomplex und $k$ ein maximaler Simplex, zu dem zwei verschiedene Orientierungen $\sigma_1, \sigma_2$ gegeben sind. Dann sind äquivalent:
+  \begin{enumerate}[(a)]
+    \item Es gibt einen geraden Automorphismus von $k$, der $\sigma_1$ auf $\sigma_2$ abbildet.
+    \item $\sigma_1 = \sigma_2$.
+  \end{enumerate}
+\end{lemma}
+\begin{proof}
+  Die Richtung \enquote{$\impliedby$} ist klar: Man kann die Identität wählen. Für \enquote{$\implies$} betrachten wir die Permutation, die zwischen den Orientierungen vermittelt. Sie zerfällt in eine gerade Zahl an Transpositionen. Jede Transposition der Knoten kann zu einer affinen bijektiven Selbstabbildung von $k$ fortgesetzt werden, da sich die Ecken von $k$ in allgemeiner Lage befinden. Unten wird gezeigt, dass jede solche Abbildung ungerade Determinante hat. Das Produkt dieserTranspositionsabbildungen ergibt also einen geraden Automorphismus von $k$, der nach Konstruktion $\sigma_1$ auf $\sigma_2$ abbildet.
+
+  Dass eine Transpositionsabbildung ungerade Determinante besitzt, kann man wie folgt einsehen. Wähle ohne Beschränkung der Allgemeinheit eine unbeteiligte Ecke als Nullpunkt, sodass wir eine lineare Abbildung haben. Die anderen Ecken ergeben dann eine Basis des Vektorraums. In dieser Basis entspricht die Transpositionsabbildung einer Einheitsmatrix mit zwei vertauschten Spalten (entsprechend der zu implementierenden Transposition). Daher ist die Determinante gleich $-1$.
+\end{proof}
+
+\begin{lemma}
+  Sei $K$ ein orientierter, flacher Simplizialkomplex aus zwei verklebten $n$"=Simplizes. Die Orientierung auf $K$ ist genau dann konsistent, wenn die beiden Simplizes gleich orientiert sind.
+\end{lemma}
+\begin{proof}
+  TODO
+\end{proof}
+
+\begin{corollary}
+  Sei $K$ ein orientierter Simplizialkomplex. $K$ ist genau dann konsistent orientiert, wenn, es für beliebige zwei benachbarte $n$"=Simplizes eine Verflachung gibt, in deren Bild sie gleich orientiert sind.
+\end{corollary}
+
+\begin{lemma}
+  Sei $K$ ein orientierbarer $n$"=dimensionaler Simplizialkomplex und $L$ eine Verfeinerung. Dann ist auch $L$ orientierbar.
+\end{lemma}
+\begin{proof}
+  \begin{enumerate}
+    \item Zuerst wählen wir eine Orientierung auf $L$. Sei dazu $l\in L$ ein $n$"=Simplex, der in $k\in K$ enthalten ist. Wähle eine Verflachung $\iota$ von $k$. die auch eine Verflachung der Verfeinerung von $k$ ist. Durch Wahl eines geraden Isomorphismus $\Phi\colon\iota\left( k \right)\to\iota\left( l \right)$ erhalten wir aus der Orientierung von $k$ eine Orientierung von $l$, die sogar unabhängig von $\iota$ und $\Phi$ ist: Zwischen zwei so gewonnenen Orientierungen von $l$ erhält man einen vermittelnden geraden Isomorphismus, der ihre Gleichheit bezeugt.
+    \item Nun zeigen wir, dass die Orientierung konsistent ist. Seien dazu $l_1, l_2$ benachbarte $n$"=Simplizes.
+    \item Fall 1: $l_1, l_2$ liegen in demselben $k\in K$. Dann wähle eine Verflachung von $k$. In deren Bild sind $l_1$ und $k$ nach Konstruktion gleich orientiert. Da das auch für $l_2$ und $k$ gilt, sind auch $l_1$ und $l_2$ gleich orientiert.
+    \item Fall 2: $l_1, l_2$ liegen in benachbarten $k_1, k_2\in K$. Dann gibt es eine Verflachung von $\left<k_1, k_2\right>$. In deren Bild sind nach Konstruktion $\left( l_1, k_1 \right)$ und $\left( l_2, k_2 \right)$ gleich orientierte Paare. Da $K$ konsistent orientiert ist, sind auch $k_1$ und $k_2$ gleich orientiert. Also auch $l_1$ und $l_2$!
+  \end{enumerate}
+\end{proof}
+
+\end{document}
