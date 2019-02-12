@@ -50,6 +50,25 @@ Der Grund liegt rein intuitiv in den folgenden zwei Beobachtungen. Ist $s$ Nulls
 
 \chapter{Interessante Aufgaben}
 
+\section{Algebra}
+
+\begin{exercise}
+  Sei $R$ ein noetherscher Ring, der Krull"=Dimension 0 hat, dessen minimale Primideale also gerade die maximalen sind. Dann hat $R$ nur endlich viele Primideale.
+\end{exercise}
+\begin{proof}
+  Sei $\mathfrak{p}$ irgendein Primideal in $R$. Wir konstruieren induktiv eine aufsteigende Kette, die in $\mathfrak{p}$ stationär wird.
+
+  Als kleine Vorbereitung wählen wir zu jedem Ideal $I$, das kein Primideal ist, zwei feste $s_I, t_I\in R\setminus I$, sodass $s_It_I\in I$.
+
+  Setze $I_0 \coloneqq \left( 0 \right)$. Entweder ist $\left( 0 \right) = \mathfrak{p}$ oder $\left( 0 \right)$ kann nach Voraussetzung kein Primideal sein. Da $\mathfrak{p}$ ein Primideal über $I_0$ ist, gibt es also ein Element $r\in\{s_{I_0}, r_{I_0} \}$, das in $\mathfrak{p}$ liegt, und wir definieren $I_1\coloneqq \left( I_0, r \right)$. Solange kein $I_n$ gleich $\mathfrak{p}$ ist, ließe sich so eine unendlich strikt aufsteigende Kette bilden. Weil $R$ nach Voraussetzung aber noethersch ist, wird nach endlich vielen Schritten $\mathfrak{p}$ erreicht.
+
+  Was man daran erkennt, ist, dass die Primideale die Blätter eines noetherschen Binärbaums ist, dessen Wurzel $\left( 0 \right)$ ist, also eines Binärbaums, in dem jeder Pfad nur endliche Länge hat.
+
+  Angenommen, ein noetherscher Binärbaum hätte unendliche Tiefe. Dann ließe sich darin ein unendlicher Pfad konstruieren, indem immer solche Kanten gewählt werden, dass der Teilbaum unter dieser Kante auch noch unendliche Tiefe hätte. Das ist ein Widerspruch!
+
+  Sei nun $t\in \mathbb{N}_0$ die endliche Tiefe unseres Binärbaums. Dann gibt es maximal $2^t$ Primideale (= Blätter) in $R$.
+\end{proof}
+
 \section{Topologie}
 
 \begin{exercise}
