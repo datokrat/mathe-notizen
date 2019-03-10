@@ -46,6 +46,70 @@ Der Grund liegt in der folgenden Beobachtung:
 
 Der Grund liegt rein intuitiv in den folgenden zwei Beobachtungen. Ist $s$ Nullstelle eines passenden Polynoms, kann $R\left[ s \right]$ als Faktoralgebra von $R\left[ X \right]$ geschrieben werden. Ist andererseits $R\left[ s \right]$ ein endlichdimensionaler $R$"=Modul, sind $1, s, s^2,\ \dots$ linear unabhängig. Hat man eine lineare Abhängigkeit gefunden, dann hat man ein passendes annullierendes Polynom gefunden. Das ist kein Beweis, aber eine gute Vorbereitung auf das Kommende.
 
+\chapter{Funktionalanalysis}
+
+\section{Ein Pattern für Banachraum-Beweise}
+
+%\newcommand{\norm}[1]{\lVert #1 \rVert}
+\newcommand{\inorm}[1]{\norm{#1}_\infty}
+
+Der Banachraum $\left(C\left[ 0, 1 \right], \inorm{\cdot}\right)$ lässt sich auf viele interessante und nützliche Arten verfeinern.
+
+\begin{itemize}
+  \item Für $\alpha\in\left( 0, 1 \right)$ sei
+    \[
+      \norm{f}_{C^\alpha} \coloneqq \inorm{f} + \sup_{\substack{x, y\in \left[ 0, 1 \right] \\ x \ne y}} \frac{\abs{f\left( x \right) - f\left( y \right)}}{\abs{x-y}^\alpha}.
+    \]
+    Die Funktionen $f\in C\left[ 0, 1 \right]$ mit $\norm{f}_{C^\alpha}<\infty$ bilden den normierten Raum $C^\alpha\left[ 0, 1 \right]$ der $\alpha$-Hölder-stetigen Funktionen.
+  \item Es sei
+    \[
+      \norm{f}_{BV} \coloneqq \inorm{f} + \sup_{0\le x_0 \le \ldots \le x_L \le 1} \sum_{l=1}^L \abs{f\left( x_l \right) - f\left( x_{l-1} \right)}.
+    \]
+    Die Funktionen $f\in C\left[ 0, 1 \right]$ mit $\norm{f}_{BV}<\infty$ bilden den normierten Raum der stetigen Funktionen beschränkter Variation.
+\end{itemize}
+
+In beiden Beispielen wird aus $\inorm{\cdot}$ eine neue Norm konstruiert, indem eine Seminorm dazuaddiert wird, die den Konvergenzbegriff, der von der Norm induziert wird, verschärft.
+
+Oft erhält man dadurch einen Banachraum. Auf die Beweisidee zu kommen braucht etwas, aber hier ist ein Beispiel für einen solchen Beweis.
+
+\begin{lemma}
+  $\left( C^\alpha\left[ 0, 1 \right], \norm{\cdot}_{C^\alpha} \right)$ ist ein Banachraum.
+\end{lemma}
+\begin{proof}
+  Definiere die Seminorm
+  \[
+    q_\alpha \coloneqq \norm{f}_{C^\alpha} - \norm{f}_\infty = \sup_{\substack{x,y\in\left[ 0, 1 \right] \\ x\ne y}} \frac{\abs{f\left( x \right) - f\left( y \right)}}{\abs{x-y}^\alpha}.
+  \]
+
+  Sei $\left( f_n \right)$ eine Cauchyfolge in $C^\alpha\left[ 0, 1 \right]$. Dann ist $\left( f_n \right)$ auch eine Cauchyfolge in $C\left[ 0, 1 \right]$. Also existiert ein $f\in C\left[ 0, 1 \right]$ mit $\inorm{f-f_n}\to 0$. Es bleibt zu zeigen: $q_\alpha\left( f-f_n \right) \to 0$.
+
+  Wir werden gleich zeigen, dass für eine beliebige gleichmäßig konvergente Folge $\left( g_n \right)$ mit $g_n\in C^\alpha \left[ 0, 1 \right]$ und $g_n \to g$ folgende Ungleichung gilt:
+  \begin{align*}
+    q_\alpha\left( g \right) \le \liminf q_\alpha\left( g_n \right). && \tag{$\ast$}.
+  \end{align*}
+  Daraus folgt dann für $m \ge n$
+  \[
+    q_\alpha\left( f - f_n \right) \le \liminf_m q_\alpha\left( f_m - f_n \right) \le \liminf_m \norm{f_m - f_n}_{C^\alpha} \le C_n,
+  \]
+  wobei $C_n$ eine Nullfolge ist ($\left( f_n \right)$ ist Cauchyfolge).
+
+  Dies liefert $\norm{f - f_n}_{C^\alpha} \to 0$. Damit liegt $f$ sogar in $C^\alpha\left[ 0, 1 \right]$. Darum ist $C^\alpha\left[ 0, 1 \right]$ ein Banachraum.
+
+  Nun zum Beweis von $\left( \ast \right)$.
+
+  Für feste, unterschiedliche $x, y \in \left[ 0, 1 \right]$ und $n\in\mathbb{N}$ gilt mit der Dreiecksungleichung
+  \[
+    \frac{\abs{f\left( x \right) - f\left( y \right)}}{\abs{x-y}^\alpha} \le \frac{\abs{f_n\left( x \right) - f_n\left( y \right)} + 2 \inorm{f - f_n}}{\abs{x-y}^\alpha}.
+  \]
+
+  Übergang zum Limes inferior über $n\in N$ liefert 
+  \[
+    \frac{\abs{f\left( x \right)-f\left( y \right)}}{\abs{x-y}^\alpha} \le q_\alpha\left( f_n \right).
+  \]
+
+  Die Behauptung $\left( \ast \right)$ folgt dann durch Übergang zum Supremum über $x$ und $y$.
+\end{proof}
+
 \appendix
 
 \chapter{Interessante Aufgaben}
@@ -74,4 +138,35 @@ Der Grund liegt rein intuitiv in den folgenden zwei Beobachtungen. Ist $s$ Nulls
 \begin{exercise}
   Sei $S^\infty$ die Vereinigung aller Sphären (nicht disjunkt), versehen mit der schwachen Topologie. Zeige: $S^\infty$ ist kontrahierbar.
 \end{exercise}
+\section{Algebraische Geometrie}
+
+\begin{exercise}
+  Consider a scheme $X$ with structure sheaf $\mathcal O_X$. Suppose that for each affine open $U \cong \Spec \mathcal O_X\left( U \right)$, $I\left( U \right) \subseteq \mathcal O_X\left( U \right)$ is an ideal and that these ideals are compatible with localization, i.\ e.\ $I\left( U \right)_f \cong I\left( U_f \right)$ via the canonical isomorphism $\Spec \left(\mathcal O_X\left( U \right)_f\right) \cong U_f$.
+
+  Show that the affine closed embeddings $U/I \coloneqq \Spec \mathcal O_X\left( U \right)/I\left( U \right) \hookrightarrow \Spec\mathcal O_X\left( U \right)$ glue to give rise to a closed embedding $Y\hookrightarrow X$.
+\end{exercise}
+\begin{proof}
+  Let us show that the affine closed embeddings can be glued in a canonical way. Therefore note that given two affine open subsets $U_1, U_2$ of $X$, we have canonical isomorphisms of schemes
+  \[
+    U_i \overset{\varphi\left( U_i \right)}{\cong} \Spec\left( \mathcal O_X\left( U_i \right) \right).
+  \]
+
+  It is known to me that $U_1\cap U_2$ is covered by the open sets which are distinguished in both $U_i$ simultaneously.
+
+  As a first step to gluing note that purely topologically, the $U/I$ cover the closed subset $V\left( I \right)$. We need to construct isomorphisms \textit{of schemes} on the overlaps such as $U_1 \cap U_2$.
+
+  Now consider a simultaneously distinguished set $D \subseteq U_1\cap U_2$. Then $D$ is affine open and $D/I$ is well"=defined. The schemes of the form $D/I$ cover $U_1 \cap U_2$ topologically. 
+
+  The isomorphism $\varphi\left( U_i \right)\left( D \right) \cong D \cong \varphi\left( U_j \right)\left( D \right)$ induces
+  \[
+    (U_i/I)_f \cong D/I \cong (U_j/I)_g.
+  \]
+
+  and for two simultaneously distinguished sets $D_1, D_2$, these isomorphisms agree on their intersection. Hence they can be glued to an isomorphism of $U_1/I$ and $U_2/I$ on their intersection.
+
+  It remains to show that the cocycle condition is satisfied, which means that the isomorphisms agree on triple intersections. But this follows from the fact that they are induced by the $\varphi\left( U_i \right)$ which in turn do agree on triple intersections.
+\end{proof}
+
+\section{Funktionalanalysis}
+
 \end{document}
