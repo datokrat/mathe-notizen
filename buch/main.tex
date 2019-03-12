@@ -138,6 +138,33 @@ Oft erhält man dadurch einen Banachraum. Auf die Beweisidee zu kommen braucht e
 \begin{exercise}
   Sei $S^\infty$ die Vereinigung aller Sphären (nicht disjunkt), versehen mit der schwachen Topologie. Zeige: $S^\infty$ ist kontrahierbar.
 \end{exercise}
+
+\begin{exercise}
+  Sei $n\in\mathbb{N}$. Dann ist $\mathbb{P}^n$ hausdorffsch.
+\end{exercise}
+\begin{proof}
+  Seien $x, y \in \mathbb{P}^n$ verschieden. Wir unterscheiden zwei nicht notwendigerweise disjunkte Fälle und finden disjunkte offene Umgebungen.
+
+  \paragraph{Fall 1} In homogenen Koordinaten gibt es ein $i$ mit $x_i \ne 0 \ne y_i$.
+  
+  $U_i \coloneqq \left\{ x \in \mathbb{P}^n \mid x_i \ne 0 \right\}$ ist offen und homöomorph zum $\mathbb{R}^n$, also hausdorffsch. Daher gibt es disjunkte offene Umgebungen um $x$ und um $y$.
+  \paragraph{Fall 2} Es gibt $i$ und $j$ mit $x\in U_i \setminus U_j$ und $y\in U_j \setminus U_i$.
+
+  Definiere $U_{ij} \coloneqq \left\{ z\in U_i \cap U_j \mid \abs{\frac{z_i}{z_j}} > 1\right\}$ (man sollte sich vergewissern, dass $U_{ij}$ auf den homogenen Koordinaten wohldefiniert ist!).
+
+  Seien $\left[ x_0, \ldots, x_n \right]$ die homogenen Koordinaten von $x$, ohne Einschränkung mit $x_i = 1$. Aus $x_j = 0$ folgt, dass
+  \[
+    V_x \coloneqq \left\{ \left[ z_0, \ldots, z_n \right] \mid z_i = 1 \land z_j \in \left( -\frac{1}{2}, \frac{1}{2} \right) \right\}
+  \]
+  eine offene Umgebung von $x$ in $U_i$ ist, wobei $V_x \cap U_j \subseteq U_{ij}$ gilt.
+
+  Analog lassen sich $U_{ji}$ und $V_y$ definieren. Dann
+  \[
+    V_x \cap V_y = \left( V_x \cap U_i \right) \cap \left( V_y \cap U_j \right) \subseteq U_{ij} \cap U_{ji} = \emptyset.
+  \]
+
+  Die Umgebungen $V_x$ und $V_y$ leisten also das Gewünschte.
+\end{proof}
 \section{Algebraische Geometrie}
 
 \begin{exercise}
