@@ -110,6 +110,28 @@ Oft erhält man dadurch einen Banachraum. Auf die Beweisidee zu kommen braucht e
   Die Behauptung $\left( \ast \right)$ folgt dann durch Übergang zum Supremum über $x$ und $y$.
 \end{proof}
 
+\section{Satz von Baire}
+
+\begin{theorem}[Baire, etwas umformuliert]
+  Sei $\left( X, d \right)$ ein vollständiger metrischer Raum und $\left( A_n \right)$ eine Folge abgeschlossener Mengen in $X$. Enthält $\bigcup A_n$ einen inneren Punkt, dann enthält schon eines der $A_n$ einen inneren Punkt.
+\end{theorem}
+\begin{proof}
+  Annahme: Kein $A_n$ enthält einen inneren Punkt.
+
+  Sei $x$ ein innerer Punkt von $A\coloneqq\bigcup A_n$ und $U_0$ eine offene Umgebung um $x$, die in $A$ enthalten ist. Wie in jedem metrischen Raum existieren $D_0$ abgeschlossen und $U_1$ nichtleer und offen mit $U_1 \subseteq D_0 \subseteq U_0$.
+  
+  Da $A_0$ keinen inneren Punkt enthält, ist die offene Menge $U_1 \setminus A_0$ nichtleer: $U_1$ kann damit auch disjunkt zu $A_n$ gewählt werden. $U_1$ und $A_0$ sind dann disjunkt.
+
+  Induktiv können wir so Folgen $\left( D_n \right), \left( U_n \right)$ nichtleerer abgeschlossener respektive offener Mengen mit
+  \[
+    U_0 \supseteq D_0 \supseteq U_1 \supseteq D_1 \supseteq \cdots
+  \]
+  konstruieren, wobei $U_n$ und $A_n$ stets disjunkt sind.
+
+  Dann gilt $\bigcap U_n = \bigcap D_n$. Der Cantorsche Durchschnittssatz besagt, dass $\bigcap D_n \ne \emptyset$ gilt; andererseits folgt aus $U_n \cap A_n = \emptyset$, dass $\left( \bigcap U_n \right) \cap X = \left( \bigcap U_n \right) \cap \left( \bigcup A_n \right) = \emptyset$.
+
+  Das ist ein Widerspruch.
+\end{proof}
 \appendix
 
 \chapter{Interessante Aufgaben}
