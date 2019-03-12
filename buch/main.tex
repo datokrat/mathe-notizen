@@ -187,6 +187,17 @@ Oft erhält man dadurch einen Banachraum. Auf die Beweisidee zu kommen braucht e
 
   Die Umgebungen $V_x$ und $V_y$ leisten also das Gewünschte.
 \end{proof}
+
+\begin{exercise}
+  Unter einem Graph sei ein endlicher Simplizialkomplex gemeint, der nur aus 0- und 1-Simplizes besteht. Zeige mithilfe der Tatsache, dass $S^1$ nicht einfach zusammenhängend ist, dass ein Graph genau dann einfach zusammenhängend ist (also jeder Weg nullhomotop ist), wenn er zusammenhängend ist und keinen zu $S_1$ homöomorphen Teilgraphen enthält.
+\end{exercise}
+\begin{proof}
+  Die Implikation \enquote{$\implies$} sollte klar sein. Umgekehrt sei $H$ ein zu $S^1$ homöomorpher Teilgraph. Dann gibt es auch einen \textit{in $H$} nicht nullhomotopen Weg $\gamma\colon \left[ 0, 1 \right] \to H$.
+
+  \paragraph{Idee} Wir weisen nach, dass $\gamma$ auch in $G$ nicht nullhomotop ist. Annahme: $h\colon \left[ 0, 1 \right]^2 \to G$ ist eine Homotopie von $\gamma$ auf einen konstanten Weg. Finden wir eine \enquote{Projektion} $\pi\colon G \to H$ -- also $\pi^2 = \pi$ und $\pi$ ist eine stetige Surjektion -- dann ist $\pi \circ h\colon \left[ 0, 1 \right]^2 \to H$ eine Homotopie von $\gamma$ auf einen Punkt, im Widerspruch dazu, dass $\gamma$ in $H$ nicht nullhomotop ist.
+
+  \paragraph{Konstruktion der Projektion} Wähle ein 0-Simplex $v$ in $H$. Bilde dann $H$ auf sich selbst ab und jedes 0-Simplex außerhalb $H$ auf $v$. Die Kanten eines 0-Simplexes außerhalb $H$ zu einem beliebigen anderen werden auf einen passenden Weg zwischen den Bildknoten abgebildet. Die Stetigkeit kann auf den endlich vielen Kanten nachgeprüft werden, die Details müsste man hier aber noch ergänzen.
+\end{proof}
 \section{Algebraische Geometrie}
 
 \begin{exercise}
